@@ -3,35 +3,37 @@ public class CalculatorEngine
     private double firstNumber;
     private double secondNumber;
 
-    public double add(double firstNumber, double secondNumber)
+    public static CalculationResult add(double firstNumber, double secondNumber)
     {
-        CalculationResult addResult = new CalculationResult();
-        addResult.setSuccess(true);
-        addResult.setResult(firstNumber+secondNumber);
-        addResult.setOperation(firstNumber + "+" + secondNumber);
-        addResult.setError("");
+        CalculationResult result = new CalculationResult();
+        result.setSuccess(true);
+        result.setResult(firstNumber+secondNumber);
+        result.setOperation(firstNumber + "+" + secondNumber);
+        result.setError("");
 
-        return addResult.getResult();
+        return result;
     }
 
-    public double subtract(double firstNumber, double secondNumber)
+    public static CalculationResult subtract(double firstNumber, double secondNumber)
     {
-        CalculationResult subtractResult = new CalculationResult();
-        subtractResult.setSuccess(true);
-        subtractResult.setResult(firstNumber-secondNumber);
-        subtractResult.setOperation(firstNumber + "-" + secondNumber);
-        subtractResult.setError("");
-        return subtractResult.getResult();
+        CalculationResult result = new CalculationResult();
+        result.setSuccess(true);
+        result.setResult(firstNumber-secondNumber);
+        result.setOperation(firstNumber + "-" + secondNumber);
+        result.setError("");
+
+        return result;
     }
 
-    public double multiplication(double firstNumber, double secondNumber)
+    public static CalculationResult multiplication(double firstNumber, double secondNumber)
     {
-        CalculationResult multiplyResult = new CalculationResult();
-        multiplyResult.setSuccess(true);
-        multiplyResult.setResult(firstNumber*secondNumber);
-        multiplyResult.setOperation(firstNumber + "*" + secondNumber);
-        multiplyResult.setError("");
-        return multiplyResult.getResult();
+        CalculationResult result = new CalculationResult();
+        result.setSuccess(true);
+        result.setResult(firstNumber*secondNumber);
+        result.setOperation(firstNumber + "*" + secondNumber);
+        result.setError("");
+
+        return result;
     }
 
     public static CalculationResult divide(double firstNumber, double secondNumber)
@@ -57,4 +59,19 @@ public class CalculatorEngine
         }
         return result;
     }
+
+    public static CalculationResult power(double firstNumber, double secondNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation(firstNumber + " ^ " + secondNumber + " =");
+
+        double power = Math.pow(firstNumber, secondNumber);
+
+        result.setSuccess(true);
+        result.setError("");
+        result.setResult(power);
+
+        return result;
+    }
+
 }
