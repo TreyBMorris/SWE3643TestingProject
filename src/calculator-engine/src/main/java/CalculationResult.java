@@ -52,3 +52,10 @@ class LogarithmException extends Exception
         super(message);
     }
 }
+class RootException extends Exception
+{
+    public RootException(String message)
+    {
+        super(message);
+    }
+}

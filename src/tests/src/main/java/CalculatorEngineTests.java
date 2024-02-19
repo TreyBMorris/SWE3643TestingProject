@@ -134,5 +134,77 @@ public class CalculatorEngineTests
         assertEquals(0.0,result.getResult(), 0.0001);
     }
 
+    @Test
+    public void NthRoot_OfTwoFloatingPointNumbers()
+    {
+        double firstNum = 8.0;
+        double secondNum = 3.0;
+        double expected = 2.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.rootOfNumber(firstNum, secondNum);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
+    @Test
+    public void Root_WhereRootIsZero_ThrowsError()
+    {
+        double firstNum = 8.0;
+        double secondNum = 0.0;
+        String error = "Second Number is Equal to 0";
+
+        CalculationResult result = CalculatorEngine.rootOfNumber(firstNum,secondNum);
+
+        assertFalse(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(0.0,result.getResult(),0.0001);
+    }
+
+    @Test
+    public void Factorial_OfAFloatingPointNumber_ReturnsResult()
+    {
+        double number = 5.0;
+        double expected = 120.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.factorial(number);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
+    @Test
+    public void Factorial_OfZero_ReturnsOne()
+    {
+        double number = 0.0;
+        double expected = 1.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.factorial(number);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected, result.getResult());
+
+    }
+
+    @Test
+    public void Sine_OfAFloatingPointNumber_ReturnsResult()
+    {
+        double number = 360.0;
+        double expected = 0.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.sineOfA(number);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected, result.getResult(), 0.01);
+    }
+
 
 }
