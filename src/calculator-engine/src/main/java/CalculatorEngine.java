@@ -101,4 +101,62 @@ public class CalculatorEngine
         return result;
     }
 
+    public static CalculationResult rootOfNumber(double firstNumber, double secondNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation(secondNumber + " √ " + firstNumber + " =");
+        try
+        {
+            if (secondNumber == 0)
+            {
+                throw new RootException("Second Number is Equal to 0");
+            }
+            double rootResult = Math.round(Math.pow(firstNumber, 1.0/secondNumber));
+            result.setResult(rootResult);
+            result.setSuccess(true);
+            result.setError("");
+        }catch(RootException e)
+        {
+            result.setResult(0.0);
+            result.setSuccess(false);
+            result.setError(e.getMessage());
+        }
+        return result;
+    }
+
+    public static CalculationResult factorial(double firstNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation(firstNumber + "! =");
+        if (firstNumber == 0)
+        {
+            result.setSuccess(true);
+            result.setError("");
+            result.setResult(1);
+        }
+        else
+        {
+            int factorialNum = 1;
+            for(int i = 1; i<=firstNumber; i++)
+            {
+                factorialNum *= i;
+            }
+            result.setSuccess(true);
+            result.setResult(factorialNum);
+            result.setError("");
+        }
+        return result;
+    }
+
+    public static CalculationResult sineOfA(double inputNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation("Sin(" + inputNumber + ") =");
+        
+        result.setSuccess(true);
+        result.setError("");
+        result.setResult(Math.sin(Math.toRadians(inputNumber)));
+        return result;
+    }
+
 }
