@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CalculatorEngineTests
 {
 
-    @Test
+    @Test // Test 1
     public void Add_TwoFloatingPointValues_ReturnsSum()
     {
         //Arrange
@@ -21,7 +21,7 @@ public class CalculatorEngineTests
         assertEquals(expected, result.getResult());
     }
 
-    @Test
+    @Test /// Test 2
     public void Subtract_TwoFloatingPointValues_ReturnsDifference()
     {
         //Arrange
@@ -37,7 +37,7 @@ public class CalculatorEngineTests
 
     }
 
-    @Test
+    @Test // Test 3
     public void Multiply_TwoFloatingPointValues_ReturnsProduct()
     {
         double firstNum = 5;
@@ -51,7 +51,7 @@ public class CalculatorEngineTests
 
     }
 
-    @Test
+    @Test // Test 4
     public void Divide_TwoFloatingPointValues_ReturnsQuotient()
     {
         double firstNum = 3.0;
@@ -63,7 +63,7 @@ public class CalculatorEngineTests
         assertTrue(result.isSuccess());
         assertEquals(result.getResult(),expected);
     }
-    @Test
+    @Test // Test 5
     public void Divide_ByZero_ThrowsError()
     {
         double firstNum = 3.0;
@@ -76,7 +76,7 @@ public class CalculatorEngineTests
         assertEquals(0.0,result.getResult(),0.0001);
         assertEquals(error,result.getError());
     }
-    @Test
+    @Test // Test 6
     public void RaiseToPower_TwoFloatingPointNumbers()
     {
         double firstNum = 2.0;
@@ -91,7 +91,7 @@ public class CalculatorEngineTests
         assertEquals(expected,result.getResult());
     }
 
-    @Test
+    @Test // Test 7
     public void LogarithmOf_TwoFloatingPointNumbers()
     {
         double firstNum = 8.0;
@@ -106,7 +106,7 @@ public class CalculatorEngineTests
         assertEquals(expected,result.getResult());
     }
 
-    @Test
+    @Test // Test 8
     public void Logarithm_WhereBaseA_isZeroOrLess_ThrowsError()
     {
         double firstNum = 0.0;
@@ -120,7 +120,7 @@ public class CalculatorEngineTests
         assertEquals(0.0,result.getResult(),0.0001);
     }
 
-    @Test
+    @Test // Test 9
     public void Logarithm_WhereBaseB_isZero_ThrowsError()
     {
         double firstNum = 8.0;
@@ -134,7 +134,7 @@ public class CalculatorEngineTests
         assertEquals(0.0,result.getResult(), 0.0001);
     }
 
-    @Test
+    @Test // Test 10
     public void NthRoot_OfTwoFloatingPointNumbers()
     {
         double firstNum = 8.0;
@@ -149,7 +149,7 @@ public class CalculatorEngineTests
         assertEquals(expected,result.getResult());
     }
 
-    @Test
+    @Test // Test 11
     public void Root_WhereRootIsZero_ThrowsError()
     {
         double firstNum = 8.0;
@@ -163,7 +163,7 @@ public class CalculatorEngineTests
         assertEquals(0.0,result.getResult(),0.0001);
     }
 
-    @Test
+    @Test // Test 12
     public void Factorial_OfAFloatingPointNumber_ReturnsResult()
     {
         double number = 5.0;
@@ -177,7 +177,7 @@ public class CalculatorEngineTests
         assertEquals(expected,result.getResult());
     }
 
-    @Test
+    @Test // Test 13
     public void Factorial_OfZero_ReturnsOne()
     {
         double number = 0.0;
@@ -192,7 +192,7 @@ public class CalculatorEngineTests
 
     }
 
-    @Test
+    @Test // Test 14
     public void Sine_OfAFloatingPointNumber_ReturnsResult()
     {
         double number = 360.0;
@@ -206,5 +206,60 @@ public class CalculatorEngineTests
         assertEquals(expected, result.getResult(), 0.01);
     }
 
+    @Test // Test 15
+    public void Cosine_OfAFloatingPointNumber_ReturnsResult()
+    {
+        double number = 360.0;
+        double expected = 1.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.cosineOfA(number);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected, result.getResult(), 0.01);
+    }
+
+    @Test // Test 16
+    public void Tangent_OfAFloatingPointNumber_ReturnsResult()
+    {
+        double number = 360.0;
+        double expected = 0.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.tangentOfA(number);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected, result.getResult(), 0.01);
+    }
+
+    @Test // Test 17
+    public void Reciprocal_OfAFloaatingPointNumber_ReturnsResult()
+    {
+        double number = 8.0;
+        double expected = 0.125;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.reciprocalOfA(number);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
+    @Test // Test 18
+    public void Reciprocal_OfA_WhereAIsZero_ThrowsError()
+    {
+        double number = 0.0;
+        double expected = 0.0;
+        String error = "Division by Zero is not allowed";
+
+        CalculationResult result = CalculatorEngine.reciprocalOfA(number);
+
+        assertFalse(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(expected, result.getResult(), 0.0001);
+    }
 
 }

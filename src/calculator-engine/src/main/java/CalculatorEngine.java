@@ -152,10 +152,58 @@ public class CalculatorEngine
     {
         CalculationResult result = new CalculationResult();
         result.setOperation("Sin(" + inputNumber + ") =");
-        
+
         result.setSuccess(true);
         result.setError("");
         result.setResult(Math.sin(Math.toRadians(inputNumber)));
+        return result;
+    }
+
+    public static CalculationResult cosineOfA(double inputNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation("Cos(" + inputNumber + ") =");
+
+        result.setSuccess(true);
+        result.setError("");
+        result.setResult(Math.cos(Math.toRadians(inputNumber)));
+
+        return result;
+    }
+
+    public static CalculationResult tangentOfA(double inputNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation("Tan(" + inputNumber + ") =");
+
+        result.setSuccess(true);
+        result.setError("");
+        result.setResult(Math.tan(Math.toRadians(inputNumber)));
+
+        return result;
+    }
+
+    public static CalculationResult reciprocalOfA(double inputNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation("1/" + inputNumber + " =");
+
+        try
+        {
+            if(inputNumber == 0)
+            {
+                throw new DivisionByZeroException("Division by Zero is not allowed");
+            }
+            result.setSuccess(true);
+            result.setError("");
+            result.setResult(1/inputNumber);
+
+        }catch(DivisionByZeroException e)
+        {
+            result.setResult(0.0);
+            result.setError(e.getMessage());
+            result.setSuccess(false);
+        }
         return result;
     }
 
