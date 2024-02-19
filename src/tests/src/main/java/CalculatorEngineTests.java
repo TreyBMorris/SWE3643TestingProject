@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.TestExecutionListeners;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorEngineTests
 {
@@ -16,9 +15,10 @@ public class CalculatorEngineTests
         double secondNum = -3.15;
         double expected = 2.35;
         //Act
-        double result = engine.add(firstNum, secondNum);
+        CalculationResult result = CalculatorEngine.add(firstNum,secondNum);
         //Assert
-        assertEquals(result, expected);
+        assertTrue(result.isSuccess());
+        assertEquals(expected, result.getResult());
     }
 
     @Test
@@ -30,22 +30,25 @@ public class CalculatorEngineTests
         double secondNum = 4.0;
         double expected = 23.93;
         //Act
-        double result = engine.subtract(firstNum, secondNum);
+        CalculationResult result = CalculatorEngine.subtract(firstNum,secondNum);
         //Assert
-        assertEquals(result, expected);
+        assertTrue(result.isSuccess());
+        assertEquals(expected, result.getResult());
+
     }
 
     @Test
     public void Multiply_TwoFloatingPointValues_ReturnsProduct()
     {
-        CalculatorEngine engine = new CalculatorEngine();
         double firstNum = 5;
         double secondNum = 7.1;
         double expected = 35.5;
 
-        double result = engine.multiplication(firstNum,secondNum);
+        CalculationResult result = CalculatorEngine.multiplication(firstNum, secondNum);
 
-        assertEquals(result,expected);
+        assertEquals(expected, result.getResult());
+        assertTrue(result.isSuccess());
+
     }
 
     @Test
@@ -57,24 +60,79 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.divide(firstNum,secondNum);
 
-
-
+        assertTrue(result.isSuccess());
         assertEquals(result.getResult(),expected);
     }
-
     @Test
     public void Divide_ByZero_ThrowsError()
     {
         double firstNum = 3.0;
         double secondNum = 0.0;
-        boolean isSuccess = false;
+
         String error = "Division by Zero is not allowed";
         CalculationResult result = CalculatorEngine.divide(firstNum,secondNum);
 
         assertFalse(result.isSuccess());
         assertEquals(0.0,result.getResult(),0.0001);
         assertEquals(error,result.getError());
-
     }
+    @Test
+    public void RaiseToPower_TwoFloatingPointNumbers()
+    {
+        double firstNum = 2.0;
+        double secondNum = 3.0;
+        double expected = 8.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.power(firstNum,secondNum);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
+    @Test
+    public void LogarithmOf_TwoFloatingPointNumbers()
+    {
+        double firstNum = 8.0;
+        double secondNum = 2.0;
+        double expected = 3.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.logarithm(firstNum,secondNum);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
+    @Test
+    public void Logarithm_WhereBaseA_isZeroOrLess_ThrowsError()
+    {
+        double firstNum = 0.0;
+        double secondNum = 2.0;
+        String error = "First Number is less than or Equal to 0";
+
+        CalculationResult result = CalculatorEngine.logarithm(firstNum,secondNum);
+
+        assertFalse(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(0.0,result.getResult(),0.0001);
+    }
+
+    @Test
+    public void Logarithm_WhereBaseB_isZero_ThrowsError()
+    {
+        double firstNum = 8.0;
+        double secondNum = 0.0;
+        String error = "Second Number is Equal to 0";
+
+        CalculationResult result = CalculatorEngine.logarithm(firstNum, secondNum);
+
+        assertFalse(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(0.0,result.getResult(), 0.0001);
+    }
+
 
 }

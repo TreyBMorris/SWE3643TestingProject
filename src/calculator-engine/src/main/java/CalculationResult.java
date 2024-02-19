@@ -44,3 +44,11 @@ class DivisionByZeroException extends Exception
         super(message);
     }
 }
+
+class LogarithmException extends Exception
+{
+    public LogarithmException(String message)
+    {
+        super(message);
+    }
+}
