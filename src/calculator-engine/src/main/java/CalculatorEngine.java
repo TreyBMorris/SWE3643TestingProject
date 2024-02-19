@@ -74,4 +74,31 @@ public class CalculatorEngine
         return result;
     }
 
+    public static CalculationResult logarithm(double firstNumber, double secondNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation(firstNumber + " log " + secondNumber + " =");
+        try
+        {
+            if (firstNumber<=0)
+            {
+                throw new LogarithmException("First Number is less than or Equal to 0");
+            }
+            if(secondNumber == 0)
+            {
+                throw new LogarithmException("Second Number is Equal to 0");
+            }
+            double logResult = (Math.log(firstNumber)/Math.log(secondNumber));
+            result.setResult(logResult);
+            result.setSuccess(true);
+            result.setError("");
+        }catch(LogarithmException e)
+        {
+            result.setResult(0.0);
+            result.setSuccess(false);
+            result.setError(e.getMessage());
+        }
+        return result;
+    }
+
 }

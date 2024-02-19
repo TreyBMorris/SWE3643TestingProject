@@ -89,7 +89,49 @@ public class CalculatorEngineTests
         assertTrue(result.isSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected,result.getResult());
+    }
 
+    @Test
+    public void LogarithmOf_TwoFloatingPointNumbers()
+    {
+        double firstNum = 8.0;
+        double secondNum = 2.0;
+        double expected = 3.0;
+        String error = "";
+
+        CalculationResult result = CalculatorEngine.logarithm(firstNum,secondNum);
+
+        assertTrue(result.isSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
+    @Test
+    public void Logarithm_WhereBaseA_isZeroOrLess_ThrowsError()
+    {
+        double firstNum = 0.0;
+        double secondNum = 2.0;
+        String error = "First Number is less than or Equal to 0";
+
+        CalculationResult result = CalculatorEngine.logarithm(firstNum,secondNum);
+
+        assertFalse(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(0.0,result.getResult(),0.0001);
+    }
+
+    @Test
+    public void Logarithm_WhereBaseB_isZero_ThrowsError()
+    {
+        double firstNum = 8.0;
+        double secondNum = 0.0;
+        String error = "Second Number is Equal to 0";
+
+        CalculationResult result = CalculatorEngine.logarithm(firstNum, secondNum);
+
+        assertFalse(result.isSuccess());
+        assertEquals(error, result.getError());
+        assertEquals(0.0,result.getResult(), 0.0001);
     }
 
 
