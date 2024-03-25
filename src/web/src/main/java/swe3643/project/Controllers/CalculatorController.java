@@ -7,27 +7,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class CalculatorController
 {
-    @GetMapping("/calculator")
-    public String add(@RequestParam(defaultValue = "0.0") double firstNum, @RequestParam(defaultValue = "0.0") double secondNum, @RequestParam String operator, Model model)
+    @GetMapping("/add")
+    public String add(@RequestParam(defaultValue = "0.0") double firstNum, @RequestParam(defaultValue = "0.0") double secondNum, Model model)
     {
-        CalculationResult result;
-        switch(operator){
-            case "+":
-                result = CalculatorEngine.add(firstNum, secondNum);
-                break;
-            case "-":
-                result = CalculatorEngine.subtract(firstNum, secondNum);
-                break;
-            case "/":
-                result = CalculatorEngine.divide(firstNum,secondNum);
-                break;
-            default:
-                result = new CalculationResult();
-                result.setError("No input");
-
-        }
-
-        if(result.isSuccess())
+        CalculationResult result = CalculatorEngine.add(firstNum, secondNum);
+        if(result.getSuccess())
         {
             model.addAttribute("operation",result.getOperation());
             model.addAttribute("result",result.getResult());
@@ -38,5 +22,49 @@ public class CalculatorController
         }
         return "view";
     }
-
+    @GetMapping("/subtract")
+    public String subtract(@RequestParam(defaultValue = "0.0") double firstNum, @RequestParam(defaultValue = "0.0") double secondNum, Model model)
+    {
+        CalculationResult result = CalculatorEngine.subtract(firstNum, secondNum);
+        if(result.getSuccess())
+        {
+            model.addAttribute("operation",result.getOperation());
+            model.addAttribute("result",result.getResult());
+        }
+        else
+        {
+            model.addAttribute("error", result.getError());
+        }
+        return "view";
+    }
+    @GetMapping("/divide")
+    public String divide(@RequestParam(defaultValue = "0.0") double firstNum, @RequestParam(defaultValue = "0.0") double secondNum, Model model)
+    {
+        CalculationResult result = CalculatorEngine.divide(firstNum, secondNum);
+        if(result.getSuccess())
+        {
+            model.addAttribute("operation",result.getOperation());
+            model.addAttribute("result",result.getResult());
+        }
+        else
+        {
+            model.addAttribute("error", result.getError());
+        }
+        return "view";
+    }
+    @GetMapping("/multiplication")
+    public String multiplication(@RequestParam(defaultValue = "0.0") double firstNum, @RequestParam(defaultValue = "0.0") double secondNum, Model model)
+    {
+        CalculationResult result = CalculatorEngine.multiplication(firstNum, secondNum);
+        if(result.getSuccess())
+        {
+            model.addAttribute("operation",result.getOperation());
+            model.addAttribute("result",result.getResult());
+        }
+        else
+        {
+            model.addAttribute("error", result.getError());
+        }
+        return "view";
+    }
 }

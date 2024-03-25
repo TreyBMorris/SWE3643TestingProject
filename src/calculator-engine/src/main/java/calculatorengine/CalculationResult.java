@@ -15,7 +15,7 @@ public class CalculationResult
     {
         this.result = result;
     }
-    public boolean isSuccess()
+    public boolean getSuccess()
     {
         return isSuccess;
     }
