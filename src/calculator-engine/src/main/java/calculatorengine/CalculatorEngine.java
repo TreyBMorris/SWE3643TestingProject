@@ -1,3 +1,10 @@
+package calculatorengine;
+
+import calculatorengine.CalculationResult;
+import calculatorengine.DivisionByZeroException;
+import calculatorengine.LogarithmException;
+import calculatorengine.RootException;
+
 public class CalculatorEngine
 {
     private double firstNumber;
