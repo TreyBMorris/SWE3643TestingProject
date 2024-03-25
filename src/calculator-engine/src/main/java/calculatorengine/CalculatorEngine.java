@@ -15,7 +15,7 @@ public class CalculatorEngine
         CalculationResult result = new CalculationResult();
         result.setSuccess(true);
         result.setResult(firstNumber+secondNumber);
-        result.setOperation(firstNumber + "+" + secondNumber);
+        result.setOperation(firstNumber + " + " + secondNumber + " =");
         result.setError("");
 
         return result;
@@ -26,7 +26,7 @@ public class CalculatorEngine
         CalculationResult result = new CalculationResult();
         result.setSuccess(true);
         result.setResult(firstNumber-secondNumber);
-        result.setOperation(firstNumber + "-" + secondNumber);
+        result.setOperation(firstNumber + " - " + secondNumber + " =");
         result.setError("");
 
         return result;
