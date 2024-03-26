@@ -1,5 +1,6 @@
+import calculatorengine.CalculationResult;
+import calculatorengine.CalculatorEngine;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.TestExecutionListeners;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +18,7 @@ public class CalculatorEngineTests
         //Act
         CalculationResult result = CalculatorEngine.add(firstNum,secondNum);
         //Assert
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(expected, result.getResult());
     }
 
@@ -32,7 +33,7 @@ public class CalculatorEngineTests
         //Act
         CalculationResult result = CalculatorEngine.subtract(firstNum,secondNum);
         //Assert
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(expected, result.getResult());
 
     }
@@ -47,7 +48,7 @@ public class CalculatorEngineTests
         CalculationResult result = CalculatorEngine.multiplication(firstNum, secondNum);
 
         assertEquals(expected, result.getResult());
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
 
     }
 
@@ -60,7 +61,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.divide(firstNum,secondNum);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(result.getResult(),expected);
     }
     @Test // Test 5
@@ -72,7 +73,7 @@ public class CalculatorEngineTests
         String error = "Division by Zero is not allowed";
         CalculationResult result = CalculatorEngine.divide(firstNum,secondNum);
 
-        assertFalse(result.isSuccess());
+        assertFalse(result.getSuccess());
         assertEquals(0.0,result.getResult(),0.0001);
         assertEquals(error,result.getError());
     }
@@ -86,7 +87,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.power(firstNum,secondNum);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected,result.getResult());
     }
@@ -101,7 +102,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.logarithm(firstNum,secondNum);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected,result.getResult());
     }
@@ -115,7 +116,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.logarithm(firstNum,secondNum);
 
-        assertFalse(result.isSuccess());
+        assertFalse(result.getSuccess());
         assertEquals(error, result.getError());
         assertEquals(0.0,result.getResult(),0.0001);
     }
@@ -129,7 +130,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.logarithm(firstNum, secondNum);
 
-        assertFalse(result.isSuccess());
+        assertFalse(result.getSuccess());
         assertEquals(error, result.getError());
         assertEquals(0.0,result.getResult(), 0.0001);
     }
@@ -144,7 +145,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.rootOfNumber(firstNum, secondNum);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected,result.getResult());
     }
@@ -158,7 +159,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.rootOfNumber(firstNum,secondNum);
 
-        assertFalse(result.isSuccess());
+        assertFalse(result.getSuccess());
         assertEquals(error, result.getError());
         assertEquals(0.0,result.getResult(),0.0001);
     }
@@ -172,7 +173,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.factorial(number);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected,result.getResult());
     }
@@ -186,7 +187,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.factorial(number);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected, result.getResult());
 
@@ -201,7 +202,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.sineOfA(number);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected, result.getResult(), 0.01);
     }
@@ -215,7 +216,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.cosineOfA(number);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected, result.getResult(), 0.01);
     }
@@ -229,7 +230,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.tangentOfA(number);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error,result.getError());
         assertEquals(expected, result.getResult(), 0.01);
     }
@@ -243,7 +244,7 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.reciprocalOfA(number);
 
-        assertTrue(result.isSuccess());
+        assertTrue(result.getSuccess());
         assertEquals(error, result.getError());
         assertEquals(expected,result.getResult());
     }
@@ -257,9 +258,24 @@ public class CalculatorEngineTests
 
         CalculationResult result = CalculatorEngine.reciprocalOfA(number);
 
-        assertFalse(result.isSuccess());
+        assertFalse(result.getSuccess());
         assertEquals(error, result.getError());
         assertEquals(expected, result.getResult(), 0.0001);
+    }
+
+    @Test //Test 19
+    public void CalculatorEngine_Compare_TwoFloatingPointNumbers_ReturnsResult()
+    {
+        double firstNumber = 123.45678901;
+        double secondNumber =  123.45678902;
+        double expected = 0.0;
+        String error="";
+
+        CalculationResult result = CalculatorEngine.aEqualsBComparison(firstNumber,secondNumber);
+
+        assertTrue(result.getSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
     }
 
 }

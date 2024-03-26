@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>Calculator</h1>
+    <form action="#" th:action="@{/submit}" th:object="${calculatorForm}" method="post">
+        <label for="firstNum">Input A:</label>
+        <input type="text" id="firstNum" th:field="*{firstNum}">
+        <label for="secondNum">Input B:</label>
+        <input type="text" id="secondNum" th:field="*{secondNum}">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
