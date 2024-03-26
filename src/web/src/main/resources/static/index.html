@@ -1,17 +1,11 @@
 <html>
 <head>
-  <meta charset="ISO-8859-1">
   <title>Calculator</title>
 </head>
 <body>
 <a href = "http://localhost:8080/">Home</a>
-<center><h1>Calculator</h1></center>
-<a href = "http://localhost:8080/add">Add with No input</a>
-<br />
-<a href = "http://localhost:8080/subtract">Subtract with No input</a>
-<br />
-<a href = "http://localhost:8080/add?firstNum=3.0&secondNum=3.0">Add with input</a>
-<br />
-<a href = "http://localhost:8080/subtract?firstNum=3.0&secondNum=1.5">Subtract with input</a>
+<div id="view" th:replace="view"></div>
+<div id="calculator" th:replace="calculator"></div>
+</div>
 </body>
 </html>

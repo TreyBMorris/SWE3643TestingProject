@@ -39,25 +39,3 @@ public class CalculationResult
         this.error = error;
     }
 }
-class DivisionByZeroException extends Exception
-{
-    public DivisionByZeroException(String message)
-    {
-        super(message);
-    }
-}
-
-class LogarithmException extends Exception
-{
-    public LogarithmException(String message)
-    {
-        super(message);
-    }
-}
-class RootException extends Exception
-{
-    public RootException(String message)
-    {
-        super(message);
-    }
-}

@@ -214,4 +214,20 @@ public class CalculatorEngine
         return result;
     }
 
+    public static CalculationResult aEqualsBComparison(double firstNumber, double secondNumber)
+    {
+        CalculationResult result = new CalculationResult();
+        result.setOperation(firstNumber + " == " + secondNumber);
+
+        double precision = 1e-8;
+        if (Math.abs(firstNumber - secondNumber) < precision) {
+            result.setResult(1);
+        } else {
+            result.setResult(0);
+        }
+        result.setSuccess(true);
+        result.setError("");
+
+        return result;
+    }
 }

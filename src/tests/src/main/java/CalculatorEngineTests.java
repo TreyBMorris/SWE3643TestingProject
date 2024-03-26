@@ -263,4 +263,19 @@ public class CalculatorEngineTests
         assertEquals(expected, result.getResult(), 0.0001);
     }
 
+    @Test //Test 19
+    public void CalculatorEngine_Compare_TwoFloatingPointNumbers_ReturnsResult()
+    {
+        double firstNumber = 123.45678901;
+        double secondNumber =  123.45678902;
+        double expected = 0.0;
+        String error="";
+
+        CalculationResult result = CalculatorEngine.aEqualsBComparison(firstNumber,secondNumber);
+
+        assertTrue(result.getSuccess());
+        assertEquals(error,result.getError());
+        assertEquals(expected,result.getResult());
+    }
+
 }
