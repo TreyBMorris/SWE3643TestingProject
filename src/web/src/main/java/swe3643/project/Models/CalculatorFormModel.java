@@ -4,6 +4,7 @@ public class CalculatorFormModel
 {
     private double firstNum;
     private double secondNum;
+    private String operator;
 
     public double getFirstNum() {
         return firstNum;
@@ -19,5 +20,14 @@ public class CalculatorFormModel
 
     public void setSecondNum(double secondNum) {
         this.secondNum = secondNum;
+    }
+
+    public String getOperator()
+    {
+        return operator;
+    }
+    public void setOperator(String operator)
+    {
+        this.operator = operator;
     }
 }

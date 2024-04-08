@@ -206,22 +206,22 @@ public class CalculatorController
         }
         return "view";
     }
-
     @GetMapping("/calculator")
     public String showInputForm(Model model) {
         model.addAttribute("calculatorForm", new CalculatorFormModel());
         return "calculator";
     }
 
+
     @PostMapping("/submit")
     public String submitForm(CalculatorFormModel formModel)
     {
         double firstNum = formModel.getFirstNum();
         double secondNum = formModel.getSecondNum();
+        String operator = formModel.getOperator();
 
-        System.out.println("Received input:" + firstNum + " " + secondNum);
+        System.out.println("Received input:" + firstNum + " " +  "operator: " + operator);
 
         return "redirect:/add?firstNum=%f&secondNum=%s".formatted(firstNum,secondNum);
     }
-
 }
