@@ -9,6 +9,7 @@ import swe3643.project.Models.CalculatorFormModel;
 @Controller
 public class CalculatorController
 {
+    /*
     @GetMapping("/add")
     public String add(@RequestParam(defaultValue = "0.0") double firstNum, @RequestParam(defaultValue = "0.0") double secondNum, Model model)
     {
@@ -206,12 +207,6 @@ public class CalculatorController
         }
         return "view";
     }
-    @GetMapping("/calculator")
-    public String showInputForm(Model model) {
-        model.addAttribute("calculatorForm", new CalculatorFormModel());
-        return "calculator";
-    }
-
 
     @PostMapping("/submit")
     public String submitForm(CalculatorFormModel formModel)
@@ -224,4 +219,104 @@ public class CalculatorController
 
         return "redirect:/add?firstNum=%f&secondNum=%s".formatted(firstNum,secondNum);
     }
+     */
+    @GetMapping("/calculator")
+    public String showInputForm(Model model) {
+        model.addAttribute("calculatorForm", new CalculatorFormModel());
+        return "calculator";
+    }
+    @PostMapping("/calculate")
+    public String calculate(@RequestParam double num1, @RequestParam double num2, @RequestParam String operator, Model model)
+    {
+        CalculationResult result = new CalculationResult();
+        switch(operator)
+        {
+            case "add":
+                result = CalculatorEngine.add(num1, num2);
+                break;
+            case "subtract":
+                result = CalculatorEngine.subtract(num1,num2);
+                break;
+            case "multiply":
+                result = CalculatorEngine.multiplication(num1, num2);
+                break;
+            case "divide":
+                result = CalculatorEngine.divide(num1,num2);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "equals":
+                result = CalculatorEngine.aEqualsBComparison(num1, num2);
+                break;
+
+            case "power":
+                result = CalculatorEngine.power(num1, num2);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "log":
+                result = CalculatorEngine.logarithm(num1, num2);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "root":
+                result = CalculatorEngine.rootOfNumber(num1, num2);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "factorial":
+                result = CalculatorEngine.factorial(num1);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "sin":
+                result = CalculatorEngine.sineOfA(num1);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "cos":
+                result = CalculatorEngine.cosineOfA(num1);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "tan":
+                result = CalculatorEngine.tangentOfA(num1);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+            case "reciprocal":
+                result = CalculatorEngine.reciprocalOfA(num1);
+                if (!result.getSuccess())
+                {
+                    model.addAttribute("error", result.getError());
+                }
+                break;
+
+        }
+        model.addAttribute("operation", result.getOperation());
+        model.addAttribute("result", result.getResult());
+        return "calculator";
+    }
+
+
+
+
+
+
 }
