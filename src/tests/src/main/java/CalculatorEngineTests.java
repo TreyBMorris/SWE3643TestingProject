@@ -70,7 +70,7 @@ public class CalculatorEngineTests
         double firstNum = 3.0;
         double secondNum = 0.0;
 
-        String error = "Division by Zero is not allowed";
+        String error = "Not a Number";
         CalculationResult result = CalculatorEngine.divide(firstNum,secondNum);
 
         assertFalse(result.getSuccess());
@@ -254,7 +254,7 @@ public class CalculatorEngineTests
     {
         double number = 0.0;
         double expected = 0.0;
-        String error = "Division by Zero is not allowed";
+        String error = "Not a Number";
 
         CalculationResult result = CalculatorEngine.reciprocalOfA(number);
 

@@ -35,6 +35,23 @@
         }
         .title-container{
             display: flex;
+            align-items: center;
+        }
+        .input-container-row{
+            display: flex;
+            align-items: center;
+        }
+        h3{
+            margin: 0;
+            padding: 5px;
+            flex: 1;
+        }
+        input{
+            margin-right: 10px;
+            margin-bottom: 5px;
+            padding: 5px;
+            flex: 1;
+            width: 100px;
         }
         .answer-container{
             background-color: #FFECD7;
@@ -46,37 +63,52 @@
             align-items: center; /* Center vertically */
             border: 1px solid #ccc; /* Add border for visualization */
         }
+        .answer-container-error{
+            background-color: #B70F0A;
+            color: #FFFFFF;
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            border: 1px solid #ccc; /* Add border for visualization */
+        }
+
 
     </style>
 </head>
 <body>
 <div class = "title-container">
-<h1>Calculator</h1>
-<button type="button" class="clear-button" onclick="clearForm()">Clear</button>
+    <h1>Calculator</h1>
+    <h1>&nbsp; &nbsp; &nbsp;</h1>
+    <button type="button" class="clear-button" onclick="clearForm()">Clear</button>
 </div>
 
-<div class = "answer-container">
-<div th:if="${result != null}">
-    <p th:text=" ${operation}"></p>
-    <p th:text=" ${result}"></p>
+<div th:class="${error==null ? 'answer-container' : 'answer-container-error'}">
+    <div th:if="${result != null}">
+        <p th:text=" ${operation}"></p>
+        <p th:if="${error == null}" th:text=" ${result}"></p>
+        <p th:if="${error != null}" th:text="${error}"></p>
+    </div>
+    <div th:if="${result} == null ">
+        <p>Enter value(s) below and select an operation</p>
+    </div>
 
-</div>
-<div th:if="${result} == null">
-    <p>Enter value(s) below and select an operation</p>
-</div>
-
-<div th:if="${error != null}">
-    <p th:text="${error}"></p>
-</div>
 </div>
 
 <form action="/calculate" method="post">
-    <input type="number" name="num1" placeholder="0" required>
-    <input type="number" name="num2" placeholder="0" required>
-
+    <div class = "input-container-row">
+        <h3>Input A </h3>
+        <h3>Input B</h3>
+    </div>
+    <div class = "input-container-row">
+        <input type="text" name="num1" value="0" >
+        <input type="text" name="num2" value="0" >
+    </div>
     <div class="container">
-        <h1>A and B</h1>
-        <h1>A only </h1>
+        <h3>A and B</h3>
+        <h3>A only </h3>
         <button type="submit" name="operator" value="add">A + B</button>
         <button type="submit" name="operator" value="factorial">A!</button>
         <button type="submit" name="operator" value="subtract">A - B</button>

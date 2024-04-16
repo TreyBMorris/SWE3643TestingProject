@@ -52,7 +52,7 @@ public class CalculatorEngine
         {
             if(secondNumber == 0)
             {
-                throw new DivisionByZeroException("Division by Zero is not allowed");
+                throw new DivisionByZeroException("Not a Number");
             }
             result.setResult(firstNumber/secondNumber);
             result.setSuccess(true);
@@ -199,7 +199,7 @@ public class CalculatorEngine
         {
             if(inputNumber == 0)
             {
-                throw new DivisionByZeroException("Division by Zero is not allowed");
+                throw new DivisionByZeroException("Not a Number");
             }
             result.setSuccess(true);
             result.setError("");
