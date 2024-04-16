@@ -86,13 +86,13 @@
 </div>
 
 <div th:class="${error==null ? 'answer-container' : 'answer-container-error'}">
-    <div th:if="${result != null}">
-        <p th:text=" ${operation}"></p>
-        <p th:if="${error == null}" th:text=" ${result}"></p>
-        <p th:if="${error != null}" th:text="${error}"></p>
+    <div th:if="${result != null}" class="answer-container-text">
+        <p th:text=" ${operation}" class = "operation"></p>
+        <p th:if="${error == null}" th:text=" ${result}" class = "result"></p>
+        <p th:if="${error != null}" th:text="${error}" class = "error"></p>
     </div>
-    <div th:if="${result} == null ">
-        <p>Enter value(s) below and select an operation</p>
+    <div th:if="${result} == null " class = "default-state">
+        <p class = "default-text">Enter value(s) below and select an operation</p>
     </div>
 
 </div>
