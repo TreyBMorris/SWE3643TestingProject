@@ -38,23 +38,25 @@ If you are not using the command-line interface, go to the top of the repository
 ## Executing the Web Application
 1. Follow the prerequisites above in the Development Environment section, to make sure you have everything you need for the program to run correctly.
 2. Launch your IDE. For my example, I use IntelliJ.
-3. Navigate to the "TreyApplication.java" file, this will be in the directory "/src/web/src/main/java/swe3643/project". 
-4. Press the green run arrow as shown below, to run the web application. This will start the web server in your IDE.
-[Image]
-5. Launch your web browser and navigate to "http://localhost:8080/calculator"
+3. Navigate to the "CalculatorApplication.java" file, this will be in the directory "/src/web/src/main/java/swe3643/project". Open this file.
+4. Press the green arrow next to the class name, or the main method to run the web application. This will start the web server in your IDE. You should get this in the console below,
+```bash
+```
+
+5. Launch your web browser and navigate to "http://localhost:8080/calculator", if you navigate to just "http://localhost:8080" please click the "Calculator" link.
 6. Interact with the application in your browser.
 7. Shutdown the server. When you are finished, please close your browser and press the red stop button in IntelliJ to stop the web server.
 ## Executing the Unit Tests
 1. Launch your IDE. For my example, I use IntelliJ.
 2. Navigate to the "CalculatorEngineTests.java" file, located in the directory "src/tests/src/main/java"
-3. Press the green arrow in IntelliJ to run the tests, or alternatively from the command line you can run,
+3. Press the green arrow at the class name to run all the unit tests. If you want to run a test individually, press the green arrow next to the method name of the test you want to run.
+You should get something along the lines of this in the console below, 
 ```bash
-mvn compile
-mvn test
+C:\Users\user\.jdks\openjdk-21.0.1\bin\java.exe ...
+Process finished with exit code 0
 ```
-Note: If you use the command line, you won't need to navigate the CalculatorEngineTests file, since Maven will automatically discover the JUnit tests and run them.
 
-4. Review the Results. In the console, you will get a return of the tests results, where the tests will be listed along with the status of pass or fail.
+4. Review the Results. On the left hand side of the the console, you will get a return of the tests results, where the tests will be listed along with the status of pass or fail. A green checkmark means the test passed, and a red X means the test failed. Alternatively, it will be listed above the console that displays how many tests passed and failed out of the total tests, and how long it took. It should always show "Test passed: 19 out of 19" 
 5. Re-run tests (if needed). If any tests fail, review the code and test cases to identify the failure. All tests should pass first try, but if they do not, feel free to submit an issue within the GitHub repository.
 ## Reviewing Unit Test Coverage
 
