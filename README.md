@@ -32,6 +32,7 @@ To prepare your environment to execute this application:
 git clone <repository_url>
 ```
 If you are not using the command-line interface, go to the top of the repository page and click the blue "<> Code" button, and click either GitHub desktop if you have it install or download as a ZIP file.
+
 5. Configure dependencies. Check the "pom.xml" file for dependencies that are required for this project. Maven will automatically download and install these dependencies during the build process. 
 
 ## Executing the Web Application
@@ -52,6 +53,7 @@ mvn compile
 mvn test
 ```
 Note: If you use the command line, you won't need to navigate the CalculatorEngineTests file, since Maven will automatically discover the JUnit tests and run them.
+
 4. Review the Results. In the console, you will get a return of the tests results, where the tests will be listed along with the status of pass or fail.
 5. Re-run tests (if needed). If any tests fail, review the code and test cases to identify the failure. All tests should pass first try, but if they do not, feel free to submit an issue within the GitHub repository.
 ## Reviewing Unit Test Coverage
