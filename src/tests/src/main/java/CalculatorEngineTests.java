@@ -8,7 +8,7 @@ public class CalculatorEngineTests
 {
 
     @Test // Test 1
-    public void Add_TwoFloatingPointValues_ReturnsSum()
+    public void CalculatorEngine_Add_TwoFloatingPointValues_ReturnsSum()
     {
         //Arrange
         CalculatorEngine engine = new CalculatorEngine();
@@ -23,7 +23,7 @@ public class CalculatorEngineTests
     }
 
     @Test /// Test 2
-    public void Subtract_TwoFloatingPointValues_ReturnsDifference()
+    public void CalculatorEngine_Subtract_TwoFloatingPointValues_ReturnsDifference()
     {
         //Arrange
         CalculatorEngine engine = new CalculatorEngine();
@@ -39,7 +39,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 3
-    public void Multiply_TwoFloatingPointValues_ReturnsProduct()
+    public void CalculatorEngine_Multiply_TwoFloatingPointValues_ReturnsProduct()
     {
         double firstNum = 5;
         double secondNum = 7.1;
@@ -53,7 +53,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 4
-    public void Divide_TwoFloatingPointValues_ReturnsQuotient()
+    public void CalculatorEngine_Divide_TwoFloatingPointValues_ReturnsQuotient()
     {
         double firstNum = 3.0;
         double secondNum = 9.0;
@@ -65,7 +65,7 @@ public class CalculatorEngineTests
         assertEquals(result.getResult(),expected);
     }
     @Test // Test 5
-    public void Divide_ByZero_ThrowsError()
+    public void CalculatorEngine_Divide_ByZero_ThrowsError()
     {
         double firstNum = 3.0;
         double secondNum = 0.0;
@@ -78,7 +78,7 @@ public class CalculatorEngineTests
         assertEquals(error,result.getError());
     }
     @Test // Test 6
-    public void RaiseToPower_TwoFloatingPointNumbers()
+    public void CalculatorEngine_RaiseToPower_TwoFloatingPointNumbers()
     {
         double firstNum = 2.0;
         double secondNum = 3.0;
@@ -93,7 +93,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 7
-    public void LogarithmOf_TwoFloatingPointNumbers()
+    public void CalculatorEngine_LogarithmOf_TwoFloatingPointNumbers()
     {
         double firstNum = 8.0;
         double secondNum = 2.0;
@@ -108,7 +108,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 8
-    public void Logarithm_WhereBaseA_isZeroOrLess_ThrowsError()
+    public void CalculatorEngine_Logarithm_WhereBaseA_isZeroOrLess_ThrowsError()
     {
         double firstNum = 0.0;
         double secondNum = 2.0;
@@ -122,7 +122,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 9
-    public void Logarithm_WhereBaseB_isZero_ThrowsError()
+    public void CalculatorEngine_Logarithm_WhereBaseB_isZero_ThrowsError()
     {
         double firstNum = 8.0;
         double secondNum = 0.0;
@@ -136,7 +136,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 10
-    public void NthRoot_OfTwoFloatingPointNumbers()
+    public void CalculatorEngine_NthRoot_OfTwoFloatingPointNumbers()
     {
         double firstNum = 8.0;
         double secondNum = 3.0;
@@ -151,7 +151,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 11
-    public void Root_WhereRootIsZero_ThrowsError()
+    public void CalculatorEngine_Root_WhereRootIsZero_ThrowsError()
     {
         double firstNum = 8.0;
         double secondNum = 0.0;
@@ -165,7 +165,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 12
-    public void Factorial_OfAFloatingPointNumber_ReturnsResult()
+    public void CalculatorEngine_Factorial_OfAFloatingPointNumber_ReturnsResult()
     {
         double number = 5.0;
         double expected = 120.0;
@@ -179,7 +179,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 13
-    public void Factorial_OfZero_ReturnsOne()
+    public void CalculatorEngine_Factorial_OfZero_ReturnsOne()
     {
         double number = 0.0;
         double expected = 1.0;
@@ -194,7 +194,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 14
-    public void Sine_OfAFloatingPointNumber_ReturnsResult()
+    public void CalculatorEngine_Sine_OfAFloatingPointNumber_ReturnsResult()
     {
         double number = 360.0;
         double expected = 0.0;
@@ -208,7 +208,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 15
-    public void Cosine_OfAFloatingPointNumber_ReturnsResult()
+    public void CalculatorEngine_Cosine_OfAFloatingPointNumber_ReturnsResult()
     {
         double number = 360.0;
         double expected = 1.0;
@@ -222,7 +222,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 16
-    public void Tangent_OfAFloatingPointNumber_ReturnsResult()
+    public void CalculatorEngine_Tangent_OfAFloatingPointNumber_ReturnsResult()
     {
         double number = 360.0;
         double expected = 0.0;
@@ -236,7 +236,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 17
-    public void Reciprocal_OfAFloaatingPointNumber_ReturnsResult()
+    public void CalculatorEngine_Reciprocal_OfAFloaatingPointNumber_ReturnsResult()
     {
         double number = 8.0;
         double expected = 0.125;
@@ -250,7 +250,7 @@ public class CalculatorEngineTests
     }
 
     @Test // Test 18
-    public void Reciprocal_OfA_WhereAIsZero_ThrowsError()
+    public void CalculatorEngine_Reciprocal_OfA_WhereAIsZero_ThrowsError()
     {
         double number = 0.0;
         double expected = 0.0;
@@ -264,7 +264,7 @@ public class CalculatorEngineTests
     }
 
     @Test //Test 19
-    public void CalculatorEngine_Compare_TwoFloatingPointNumbers_ReturnsResult()
+    public void CalculatorEngine_CalculatorEngine_Compare_TwoFloatingPointNumbers_ReturnsResult()
     {
         double firstNumber = 123.45678901;
         double secondNumber =  123.45678902;
