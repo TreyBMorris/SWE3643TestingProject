@@ -27,7 +27,7 @@ This project was created in a Windows environment, using JetBrain's IntelliJ. I 
 To prepare your environment to execute this application:
 1. [Install the latest Java runtime for your system.](https://www.java.com/en/download/manual.jsp)
 2. [Install Apache Maven](https://maven.apache.org/install.html)
-3. [Install IntelliJ(Optional)](https://www.jetbrains.com/idea/?var=1)
+3. [Install IntelliJ](https://www.jetbrains.com/idea/?var=1)
 4. Clone the GitHub repository. Using the command-line interface you can run,
 ```bash
 git clone <repository_url>
