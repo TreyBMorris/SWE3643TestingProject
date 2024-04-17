@@ -11,7 +11,6 @@ This is a Java 21 web application using Spring MVC, with JUnit for unit testing 
 - [Reviewing Unit Test Coverage](#reviewing-unit-test-coverage)
 - [Executing End-To-End Tests](#executing-end-to-end-tests)
 - [Final Video Presentation](#final-video-presentation)
-- [Troubleshooting](#troubleshooting-and-common-problems)
 
 
 ## Team Members
@@ -89,5 +88,3 @@ mvn test
 2. After, navigate to the "CalculatorE2ETests.java" file, this will be in the directory "/src/web/src/main/java/swe3643/project". Open this file.
 3. Press the green arrow at the class name, and press the first run option to run all the tests.
 ## Final Video Presentation
-
-## Troubleshooting and Common Problems
