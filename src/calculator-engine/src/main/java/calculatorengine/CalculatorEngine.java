@@ -37,7 +37,7 @@ public class CalculatorEngine
         CalculationResult result = new CalculationResult();
         result.setSuccess(true);
         result.setResult(firstNumber*secondNumber);
-        result.setOperation(firstNumber + "*" + secondNumber);
+        result.setOperation(firstNumber + "*" + secondNumber + " =");
         result.setError("");
 
         return result;
@@ -52,7 +52,7 @@ public class CalculatorEngine
         {
             if(secondNumber == 0)
             {
-                throw new DivisionByZeroException("Division by Zero is not allowed");
+                throw new DivisionByZeroException("Not a Number");
             }
             result.setResult(firstNumber/secondNumber);
             result.setSuccess(true);
@@ -199,7 +199,7 @@ public class CalculatorEngine
         {
             if(inputNumber == 0)
             {
-                throw new DivisionByZeroException("Division by Zero is not allowed");
+                throw new DivisionByZeroException("Not a Number");
             }
             result.setSuccess(true);
             result.setError("");
@@ -217,7 +217,7 @@ public class CalculatorEngine
     public static CalculationResult aEqualsBComparison(double firstNumber, double secondNumber)
     {
         CalculationResult result = new CalculationResult();
-        result.setOperation(firstNumber + " == " + secondNumber);
+        result.setOperation(firstNumber + " == " + secondNumber + " =");
 
         double precision = 1e-8;
         if (Math.abs(firstNumber - secondNumber) < precision) {

@@ -1,17 +1,137 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 15px;
+            font-weight: bold; /* Make button text bold */
+            color: black;
+        }
+        .container button{
+            color: black;
+            background-color: #EBEBEB;
+            width: 120px;
+            height: 25px;
+            border-radius: 4px;
+        }
+
+        .container h1{
+            display: inline;
+            margin-right: 20px;
+            background: #EBEBEB;
+        }
+        .clear-button{
+            color: black;
+            background-color: #EBEBEB;
+            width: 150px;
+            height: 25px;
+            border-radius: 4px;
+            border-color: black;
+        }
+        .title-container{
+            display: flex;
+            align-items: center;
+        }
+        .input-container-row{
+            display: flex;
+            align-items: center;
+        }
+        h3{
+            margin: 0;
+            padding: 5px;
+            flex: 1;
+        }
+        input{
+            margin-right: 10px;
+            margin-bottom: 5px;
+            padding: 5px;
+            flex: 1;
+            width: 100px;
+        }
+        .answer-container{
+            background-color: #FFECD7;
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            border: 1px solid #ccc; /* Add border for visualization */
+        }
+        .answer-container-error{
+            background-color: #B70F0A;
+            color: #FFFFFF;
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            border: 1px solid #ccc; /* Add border for visualization */
+        }
+
+
+    </style>
 </head>
 <body>
-<div style="text-align: center;">
+<div class = "title-container">
     <h1>Calculator</h1>
-    <form action="#" th:action="@{/submit}" th:object="${calculatorForm}" method="post">
-        <label for="firstNum">Input A:</label>
-        <input type="text" id="firstNum" th:field="*{firstNum}">
-        <label for="secondNum">Input B:</label>
-        <input type="text" id="secondNum" th:field="*{secondNum}">
-        <button type="submit">Submit</button>
-    </form>
+    <h1>&nbsp; &nbsp; &nbsp;</h1>
+    <button type="button" class="clear-button" onclick="clearForm()">Clear</button>
 </div>
+
+<div th:class="${error==null ? 'answer-container' : 'answer-container-error'}">
+    <div th:if="${result != null}" class="answer-container-text">
+        <p th:text=" ${operation}" class = "operation"></p>
+        <p th:if="${error == null}" th:text=" ${result}" class = "result"></p>
+        <p th:if="${error != null}" th:text="${error}" class = "error"></p>
+    </div>
+    <div th:if="${result} == null " class = "default-state">
+        <p class = "default-text">Enter value(s) below and select an operation</p>
+    </div>
+
+</div>
+
+<form action="/calculate" method="post">
+    <div class = "input-container-row">
+        <h3>Input A </h3>
+        <h3>Input B</h3>
+    </div>
+    <div class = "input-container-row">
+        <input type="text" name="num1" value="0" >
+        <input type="text" name="num2" value="0" >
+    </div>
+    <div class="container">
+        <h3>A and B</h3>
+        <h3>A only </h3>
+        <button type="submit" name="operator" value="add">A + B</button>
+        <button type="submit" name="operator" value="factorial">A!</button>
+        <button type="submit" name="operator" value="subtract">A - B</button>
+        <button type="submit" name="operator" value="sin">sin A</button>
+        <button type="submit" name="operator" value="multiply">A * B</button>
+        <button type="submit" name="operator" value="cos">cos A</button>
+        <button type="submit" name="operator" value="divide">A / B</button>
+        <button type="submit" name="operator" value="tan">tan A</button>
+        <button type="submit" name="operator" value="equals">A == B</button>
+        <button type="submit" name="operator" value="reciprocal">1 / A</button>
+        <button type="submit" name="operator" value="power">A ^ B</button>
+        <br>
+        <button type="submit" name="operator" value="log">A log B</button>
+        <br>
+        <button type="submit" name="operator" value="root">A root B</button>
+
+    </div>
+</form>
+<script>
+    function clearForm() {
+        window.location.href = "calculator";
+    }
+</script>
+
 </body>
 </html>
