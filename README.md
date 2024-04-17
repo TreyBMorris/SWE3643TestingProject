@@ -27,7 +27,7 @@ This project was created in a Windows environment, using JetBrain's IntelliJ. I 
 To prepare your environment to execute this application:
 1. [Install the latest Java runtime for your system.](https://www.java.com/en/download/manual.jsp)
 2. [Install Apache Maven](https://maven.apache.org/install.html)
-3. [Install IntelliJ](https://www.jetbrains.com/idea/?var=1)
+3. [Install IntelliJ(Optional)](https://www.jetbrains.com/idea/?var=1)
 4. Clone the GitHub repository. Using the command-line interface you can run,
 ```bash
 git clone <repository_url>
@@ -38,9 +38,14 @@ If you are not using the command-line interface, go to the top of the repository
 
 ## Executing the Web Application
 1. Follow the prerequisites above in the Development Environment section, to make sure you have everything you need for the program to run correctly.
-2. Launch your IDE. For my example, I use IntelliJ.
-3. Navigate to the "CalculatorApplication.java" file, this will be in the directory "/src/web/src/main/java/swe3643/project". Open this file.
-4. Press the green arrow next to the class name, or the main method to run the web application. This will start the web server in your IDE. You should get this in the console below,
+2. Navigate to the directory of the project.
+3. Run the following command to run the web application.
+```bash
+mvn spring-boot:run
+```
+
+
+4. After running the command, the terminal should look something like this,
 ```bash
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -64,29 +69,31 @@ If you are not using the command-line interface, go to the top of the repository
 
 5. Launch your web browser and navigate to "http://localhost:8080/calculator", if you navigate to just "http://localhost:8080" please click the "Calculator" link.
 6. Interact with the application in your browser.
-7. Shutdown the server. When you are finished, please close your browser and press the red stop button in IntelliJ to stop the web server.
+7. Shutdown the server. When you are finished, please close your browser press Control+C twice to stop the web server.
 ## Executing the Unit Tests
-1. Launch your IDE. For my example, I use IntelliJ.
-2. Navigate to the "CalculatorEngineTests.java" file, located in the directory "src/tests/src/main/java"
-3. Press the green arrow at the class name, and press the first run option to run all the unit tests. If you want to run a test individually, press the green arrow next to the method name of the test you want to run.
-You should get something along the lines of this in the console below, 
-```bash
-C:\Users\user\.jdks\openjdk-21.0.1\bin\java.exe ...
-Process finished with exit code 0
-```
-
-4. Review the Results. On the left hand side of the the console, you will get a return of the tests results, where the tests will be listed along with the status of pass or fail. A green checkmark means the test passed, and a red X means the test failed. Alternatively, it will be listed above the console that displays how many tests passed and failed out of the total tests, and how long it took. It should always show "Test passed: 19 out of 19".
-4. To run outside of the IDE, navigate to the pdirectory in a terminal or command prompt. Run the command below to run the tests,
+1. Run the following command to run all of the unit tests,
 ```bash
 mvn test
 ```
 
+4. Review the Results. You should see that all 19 tests run and pass.
 5. Re-run tests (if needed). If any tests fail, review the code and test cases to identify the failure. All tests should pass first try, but if they do not, feel free to submit an issue within the GitHub repository.
 ## Reviewing Unit Test Coverage
 1. For this application, I was able to achieve 100% coverage for the Calculator Engine class. I was able to cover all methods within the class, and 99% of lines in the class were covered by my tests.
 ![Coverage Image](image.png)
 ## Executing End-to-End Tests
 1. Run the web application on your local machine, the tests will fail if the web application is not running. 
-2. After, navigate to the "CalculatorE2ETests.java" file, this will be in the directory "/src/web/src/main/java/swe3643/project". Open this file.
-3. Press the green arrow at the class name, and press the first run option to run all the tests.
-## Final Video Presentation
+2. After, run the following command to run the end-to-end tests,
+```bash
+mvn test
+```
+
+3. Under "Running CalculatorE2ETests" you will see that all 5 tests run and pass. 
+## Final Video Presentation 
+
+## Troubleshooting
+1. If you are having any problems, make sure you delete the target folder in the directory if it is there. I had some issues with running the maven command line commands when this was here. 
+2. Another thing I noticed personally, was when I would run "mvn clean" it would end up breaking things. So don't run it.
+3. If you cannot get it working from the maven command line, I highly suggest either using IntelliJ or running the application in IntelliJ first. It is ALOT easier to run this program within IntelliJ.
+<br/>
+If there are any other issues or problems, feel free to open an issue for me, and I will make sure it is dealt with!
