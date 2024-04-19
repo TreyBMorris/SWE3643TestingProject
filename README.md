@@ -13,7 +13,7 @@ This project uses [Spring Initializr](https://start.spring.io/) with the Maven p
 - [Reviewing Unit Test Coverage](#reviewing-unit-test-coverage)
 - [Executing End-To-End Tests](#executing-end-to-end-tests)
 - [Final Video Presentation](#final-video-presentation)
-
+- [Troubleshooting](#troubleshooting)
 
 ## Team Members
 - [Trey Morris](https://github.com/TreyBMorris)
