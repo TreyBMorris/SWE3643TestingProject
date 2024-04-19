@@ -101,6 +101,8 @@ mvn test
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=o4hx-WWdPwE" target="_blank">
  <img src="http://img.youtube.com/vi/o4hx-WWdPwE/mqdefault.jpg" alt="Watch the video" width="240" height="180" border="10" />
 </a>
+
+
 ## Troubleshooting
 1. If you are having any problems, make sure you delete the target folder in the directory if it is there. I had some issues with running the maven command line commands when this was here. 
 2. Another thing I noticed personally, was when I would run "mvn clean" it would end up breaking things. So don't run it.
