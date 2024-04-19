@@ -40,9 +40,7 @@ If you are not using the command-line interface, go to the top of the repository
 ```bash
 mvn compile
 ```
-```bash
-mvn package
-```
+
 This will compile and build the program in order for you to run it. If you can, I highly suggest using an IDE to run the program, but you can run it from the maven command line as well.
 ## Executing the Web Application
 1. Follow the prerequisites above in the Development Environment section, to make sure you have everything you need for the program to run correctly.
@@ -103,5 +101,6 @@ mvn test
 1. If you are having any problems, make sure you delete the target folder in the directory if it is there. I had some issues with running the maven command line commands when this was here. 
 2. Another thing I noticed personally, was when I would run "mvn clean" it would end up breaking things. So don't run it.
 3. If you cannot get it working from the maven command line, I highly suggest either using IntelliJ or running the application in IntelliJ first. It is ALOT easier to run this program within IntelliJ.
+4. If you are running the application from the command line and after trying to run the "mvn compile" or "mvn spring-boot:run" you may get a main class not found error. If this happens, a solution I found was again running it in IntelliJ first. I am unsure why this fixes it, but it seems to work and you should be able to use the command line after running it once in IntelliJ.
 <br/>
 If there are any other issues or problems, feel free to open an issue for me, and I will make sure it is dealt with!
