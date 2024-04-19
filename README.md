@@ -26,16 +26,23 @@ This project was created in a Windows environment, using JetBrain's IntelliJ. I 
 
 To prepare your environment to execute this application:
 1. [Install the latest Java runtime for your system.](https://www.java.com/en/download/manual.jsp)
-2. [Install Apache Maven](https://maven.apache.org/install.html)
-3. [Install IntelliJ(Optional)](https://www.jetbrains.com/idea/?var=1)
-4. Clone the GitHub repository. Using the command-line interface you can run,
+2. [Install Apache Maven](https://maven.apache.org/install.html) PLEASE FOLLOW ALL INSTRUCTIONS. If Apache Maven is not set up correctly, you will be unable to use the maven CLI and you would not be able to run the program from outside the IDE.
+4. [Install IntelliJ(Optional)](https://www.jetbrains.com/idea/?var=1)
+5. Clone the GitHub repository. Using the command-line interface you can run,
 ```bash
 git clone <repository_url>
 ```
 If you are not using the command-line interface, go to the top of the repository page and click the blue "<> Code" button, and click either GitHub desktop if you have it install or download as a ZIP file.
 
-5. Configure dependencies. Check the "pom.xml" file for dependencies that are required for this project. Maven will automatically download and install these dependencies during the build process. 
-
+5. Configure dependencies. Check the "pom.xml" file for dependencies that are required for this project. Maven will automatically download and install these dependencies during the build process.
+6. Run the following,
+```bash
+mvn compile
+```
+```bash
+mvn package
+```
+This will compile and build the program in order for you to run it. If you can, I highly suggest using an IDE to run the program, but you can run it from the maven command line as well.
 ## Executing the Web Application
 1. Follow the prerequisites above in the Development Environment section, to make sure you have everything you need for the program to run correctly.
 2. Navigate to the directory of the project.
