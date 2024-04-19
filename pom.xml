@@ -8,6 +8,15 @@
 		<version>3.2.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<profiles>
+		<profile>
+			<id>profile1</id>
+			<properties>
+				<spring.boot.mainclass>swe3643.project.CalculatorApplication</spring.boot.mainclass>
+			</properties>
+		</profile>
+	</profiles>
+
 	<groupId>swe3643</groupId>
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -24,13 +33,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-maven-plugin</artifactId>
 			<version>3.2.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -52,7 +61,6 @@
 			<version>3.6.1</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
