@@ -77,13 +77,14 @@ mvn spring-boot:run
 6. Interact with the application in your browser.
 7. Shutdown the server. When you are finished, please close your browser press Control+C twice to stop the web server.
 ## Executing the Unit Tests
-1. Run the following command to run all of the unit tests,
+1. You will need to run the web server first to run the tests, not running the web server will cause it to fail. Both Unit tests and E2E tests run at the same time when running the next step.
+2. Run the following command to run all of the unit tests,
 ```bash
 mvn test
 ```
 
-4. Review the Results. You should see that all 19 tests run and pass.
-5. Re-run tests (if needed). If any tests fail, review the code and test cases to identify the failure. All tests should pass first try, but if they do not, feel free to submit an issue within the GitHub repository.
+3. Review the Results. You should see that all 19 tests run and pass.
+4. Re-run tests (if needed). If any tests fail, review the code and test cases to identify the failure. All tests should pass first try, but if they do not, feel free to submit an issue within the GitHub repository.
 ## Reviewing Unit Test Coverage
 1. For this application, I was able to achieve 100% coverage for the Calculator Engine class. I was able to cover all methods within the class, and 99% of lines in the class were covered by my tests.
 ![Coverage Image](image.png)
