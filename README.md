@@ -98,6 +98,7 @@ mvn test
 3. Under "Running CalculatorE2ETests" you will see that all 5 tests run and pass. 
 ## Final Video Presentation 
 Watch the video here:
+<br/>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=o4hx-WWdPwE" target="_blank">
  <img src="http://img.youtube.com/vi/o4hx-WWdPwE/mqdefault.jpg" alt="Watch the video" width="240" height="180" border="10" />
 </a>
